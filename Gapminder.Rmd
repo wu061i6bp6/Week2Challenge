@@ -1,0 +1,39 @@
+---
+title: "Gapminder"
+author: "VictorTien"
+date: "05/03/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(gapminder)
+library(dplyr)
+```
+
+## Introduction
+
+In this document,we will be exploring the Gapminder dataset.
+
+## Observations of Gapminder
+
+### Countries with life expectancy less than 30
+
+```{r}
+gapminder$country[which(gapminder$lifeExp < 30)]
+```
+
+### Countries with life expectancy greater than 81
+
+```{r}
+gapminder$country[which(gapminder$lifeExp > 81)]
+```
+
+### LIfe Expectancy by Continent
+
+```{r}
+item_1 <- gapminder %>% filter(gapminder$year == 2007)
+boxplot(gapminder$lifeExp ~ gapminder$continent, data = item_1)
+```
+
